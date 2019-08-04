@@ -89,8 +89,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BookingSystem_Tests\UnitTest1.cs" />
+    <Compile Include="Data\InMemoryBookingRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Controllers\HomeControllerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
@@ -99,11 +100,20 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BookingSystem.Data\BookingSystem.Data.csproj">
+      <Project>{0873c906-2f41-436a-88bd-29704bdc62f8}</Project>
+      <Name>BookingSystem.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BookingSystem.UI_Web\BookingSystem.UI_Web.csproj">
       <Project>{D0E124A9-EAAD-4D6B-843D-6CDFCA746B69}</Project>
       <Name>BookingSystem.UI_Web</Name>
     </ProjectReference>
+    <ProjectReference Include="..\BookingSystem\BookingSystem.csproj">
+      <Project>{3074ec88-a76a-4a94-8d50-f6046e7d7092}</Project>
+      <Name>BookingSystem</Name>
+    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

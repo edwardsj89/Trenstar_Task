@@ -11,19 +11,7 @@ namespace BookingSystem
     {
         public int MaxBookings { get; set; } = 20;
 
-        private readonly IBookingRepository repository;
-
-        private BookingChecker()
-        {
-
-        }
-
-        public BookingChecker(IBookingRepository bookingRepository)
-        {
-            repository = bookingRepository;
-        }
-
-        public virtual bool CheckBookingAvailable(DateTime Date)
+        public virtual bool CheckBookingAvailable(DateTime Date, IBookingRepository repository)
         {
             bool IsAvailable = false;
 

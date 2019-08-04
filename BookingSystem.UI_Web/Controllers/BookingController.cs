@@ -23,7 +23,7 @@ namespace BookingSystem.UI_Web.Controllers
         {
             using (var repo = new BookingRepository())
             {
-                var available = new BookingChecker(repo).CheckBookingAvailable(model.Date);
+                var available = new BookingChecker().CheckBookingAvailable(model.Date, repo);
                 if (!available)
                 {
                     string message = $"There are no more bookings available for the selected date {model.Date.ToShortDateString()}";
@@ -51,7 +51,7 @@ namespace BookingSystem.UI_Web.Controllers
             using (var repo = new BookingRepository())
             {
                 //Double check no new booking was made while user captured data
-                var available = new BookingChecker(repo).CheckBookingAvailable(model.Date);
+                var available = new BookingChecker().CheckBookingAvailable(model.Date, repo);
                 if (!available)
                 {
                     string message = $"There are no more bookings available for the selected date {model.Date.ToShortDateString()}";

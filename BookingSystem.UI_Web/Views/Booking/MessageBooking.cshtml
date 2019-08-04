@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "MessageBooking";
+}
+
+<h2>Booking Result</h2>
+
+<div>
+    <p>@(ViewBag.Message)</p>
+    <br />
+    @Html.ActionLink("Create a new booking", "Index", "Booking", null, htmlAttributes: new { @class = "btn btn-primary" })
+</div>
+

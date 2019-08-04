@@ -1,0 +1,20 @@
+﻿@model BookingSystem.UI_Web.Models.DateCheckViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.Date, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(m => m.Date, null, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
+            @Html.ValidationMessageFor(m => m.Date, "", htmlAttributes: new { @class = "text-danger" })
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Check Available Bookings" />
+    }
+</div>

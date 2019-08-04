@@ -1,0 +1,36 @@
+﻿@model BookingSystem.UI_Web.Models.BookingViewModel
+@{
+    ViewBag.Title = "CreateBooking";
+}
+
+<h2>Create Booking</h2>
+
+<div class="container">
+    @using (Html.BeginForm("CreateBooking", "Booking", FormMethod.Post))
+    {
+        <!-- Date -->
+        @Html.HiddenFor(m => m.Date, htmlAttributes: new { @Value = Model.Date.ToString("yyyy-MM-dd") })
+        <div class="form-group">
+            @Html.LabelFor(m => m.Date, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(m => m.Date, null, new { htmlAttributes = new { @class = "form-control", @type = "date", @disabled = "disabled", @Value = Model.Date.ToString("yyyy-MM-dd") } })
+            @Html.ValidationMessageFor(m => m.Date, "", htmlAttributes: new { @class = "text-danger" })
+        </div>
+
+        <!-- Name -->
+        <div class="form-group">
+            @Html.LabelFor(m => m.Name, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(m => m.Name, null, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Name, "", htmlAttributes: new { @class = "text-danger" })
+        </div>
+
+        <!-- Email -->
+        <div class="form-group">
+            @Html.LabelFor(m => m.Email, htmlAttributes: new { @class = "control-label" })
+            @Html.EditorFor(m => m.Email, null, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Email, "", htmlAttributes: new { @class = "text-danger" })
+        </div>
+
+        @Html.ActionLink("Cancel", "Index", "Booking", null, htmlAttributes: new { @class = "btn btn-primary" })
+        <input type="submit" name="submitButton" value="Confirm" class="btn btn-primary" />
+    }
+</div>
